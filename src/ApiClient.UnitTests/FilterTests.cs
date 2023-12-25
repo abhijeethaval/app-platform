@@ -43,6 +43,24 @@ namespace ApiClient.UnitTests
         }
 
         [TestMethod]
+        public void Creates_filter_number_greater_than_or_equal_condition()
+        {
+            var filterString = new Filter<Employee>()
+                .GreaterThanOrEqualTo(x => x.Salary, 40000)
+                .AsApiFilter();
+            Assert.AreEqual("Salary $ge 40000", filterString);
+        }
+
+        [TestMethod]
+        public void Creates_filter_number_less_than_or_equal_condition()
+        {
+            var filterString = new Filter<Employee>()
+                .LessThanOrEqualTo(x => x.Salary, 40000)
+                .AsApiFilter();
+            Assert.AreEqual("Salary $le 40000", filterString);
+        }
+
+        [TestMethod]
         public void Creates_filter_with_group()
         {
             var filterString = new Filter<Employee>()

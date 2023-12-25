@@ -27,9 +27,9 @@ namespace ApiClient
             return new LogicBuilder(this);
         }
 
-        public LogicBuilder LessThan(Expression<Func<T, double>> propertyExpression, double value)
+        public LogicBuilder LessThanOrEqualTo(Expression<Func<T, DateTime>> propertyExpression, DateTime value)
         {
-            this.segments.Add(new ConditionSegment<T, double>(propertyExpression, value, FilterOperator.LessThan));
+            this.segments.Add(new ConditionSegment<T, DateTime>(propertyExpression, value, FilterOperator.LessThanOrEqualTo));
             return new LogicBuilder(this);
         }
 
@@ -39,9 +39,33 @@ namespace ApiClient
             return new LogicBuilder(this);
         }
 
+        public LogicBuilder GreaterThanOrEqualTo(Expression<Func<T, DateTime>> propertyExpression, DateTime value)
+        {
+            this.segments.Add(new ConditionSegment<T, DateTime>(propertyExpression, value, FilterOperator.GreaterThanOrEqualTo));
+            return new LogicBuilder(this);
+        }
+
+        public LogicBuilder LessThan(Expression<Func<T, double>> propertyExpression, double value)
+        {
+            this.segments.Add(new ConditionSegment<T, double>(propertyExpression, value, FilterOperator.LessThan));
+            return new LogicBuilder(this);
+        }
+
+        public LogicBuilder LessThanOrEqualTo(Expression<Func<T, double>> propertyExpression, double value)
+        {
+            this.segments.Add(new ConditionSegment<T, double>(propertyExpression, value, FilterOperator.LessThanOrEqualTo));
+            return new LogicBuilder(this);
+        }
+
         public LogicBuilder GreaterThan(Expression<Func<T, double>> propertyExpression, double value)
         {
             this.segments.Add(new ConditionSegment<T, double>(propertyExpression, value, FilterOperator.GreaterThan));
+            return new LogicBuilder(this);
+        }
+
+        public LogicBuilder GreaterThanOrEqualTo(Expression<Func<T, double>> propertyExpression, double value)
+        {
+            this.segments.Add(new ConditionSegment<T, double>(propertyExpression, value, FilterOperator.GreaterThanOrEqualTo));
             return new LogicBuilder(this);
         }
 

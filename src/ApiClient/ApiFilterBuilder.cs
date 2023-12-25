@@ -70,6 +70,8 @@ namespace ApiClient
                 case FilterOperator.NotEqualTo: return "$ne";
                 case FilterOperator.GreaterThan: return "$gt";
                 case FilterOperator.LessThan: return "$lt";
+                case FilterOperator.GreaterThanOrEqualTo: return "$ge";
+                case FilterOperator.LessThanOrEqualTo: return "$le";
                 default: throw new NotImplementedException();
             };
         }
